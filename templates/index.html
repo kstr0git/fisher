@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% import "page_macros.html" as page_macros %}
 
-
 {% block title %}
   <title>{{ config.title }}</title>
 {% endblock title %}
@@ -28,7 +27,7 @@
       {% for page in section.pages | slice(end=2) %}
         {{ page_macros::page_in_index(page=page) }}
       {% endfor %}
-      <a class="text-sm font-semibold hover:text-emerald-500" href="/projects/">more blog posts</a>
+      <a class="text-sm font-semibold hover:text-emerald-500" href="/projects/">more projects posts</a>
     </div>
   </div>
 
