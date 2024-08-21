@@ -60,8 +60,10 @@
         </div>
     </div>
 
-  <footer class="mt-8 flex justify-center items-center dark:text-stone-400 text-stone-600 w-full">
-    <p class="p2 text-sm"> © 2023 Kstr0. Powered by <a href="https://www.getzola.org/">Zola</a></p>
+  <footer class="mt-8 flex flex-col justify-center items-center dark:text-stone-400 text-stone-600 w-full">
+        <p class="p2 text-sm">© {{ config.extra.author }} {{ now() | date(format="%Y") }}</p>
+        <p class="text-sm">Powered by <a class="hover:text-emerald-500" href="https://www.getzola.org/">Zola</a> 
+          using the <a class="hover:text-emerald-500" href="https://github.com/kstr0git/fisher">Fisher</a> theme</p>
   </footer>
 </div>
 
