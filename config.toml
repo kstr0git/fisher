@@ -1,0 +1,20 @@
+# The URL the site will be built for
+base_url = "https://yoursite.com"
+title = "Fisher"
+description = "An inspired Zola theme"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "nord"
+
+[extra]
+github_account = ""
+blog_details = "Lorem ipsum odor amet, consectetuer adipiscing elit. Quis elementum ultrices rutrum scelerisque efficitur proin integer. Porta senectus elit cras tincidunt suspendisse lobortis. Libero porta amet sagittis porta sodales habitasse lacus. Nam euismod vivamus ornare mi congue. Cubilia potenti tristique pharetra rhoncus nam."

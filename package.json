@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.14",
+    "tailwindcss": "^3.4.10"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production npx tailwindcss -i styles/styles.css -o static/styles/styles.css",
+    "watch": "npx tailwindcss -i styles/styles.css -o static/styles/styles.css; zola serve"
+  },
+  "dependencies": {
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "name": "fisher",
+  "version": "1.0.0",
+  "description": "theme for my personal zola blog",
+  "main": "index.js",
+  "author": "kstr0git",
+  "license": "MIT"
+}

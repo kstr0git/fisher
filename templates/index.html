@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "page_macros.html" as page_macros %}
+
+
+{% block title %}
+  <title>{{ config.title }}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="grid-prose flex flex-col items-center"> 
+
+<figure class="!mt-4">
+      <img src="{{ get_url(path='/images/banner.jpg', cachebust=true, allow_missing=true) }}" height="500px" class="w-full rounded-lg !mb-0"/>
+</figure>
+
+{% if config.extra.blog_details %}
+<p class="p-4 dark:text-stone-400"> {{ config.extra.blog_details }} </p>
+{% endif %}
+
+<section class="flex sm:flex-row flex-col gap-8 justify-evenly">
+  <div class="w-full">
+    <div class="border-b-2 border-dotted border-emerald-500">
+      <h2 class="text-xl dark:text-stone-400" >Recent Projects</h2>
+    </div>
+
+    <div class="list-none dark:text-stone-400">
+      {% set section = get_section(path="projects/_index.md") %}
+      {% for page in section.pages | slice(end=2) %}
+        {{ page_macros::page_in_index(page=page) }}
+      {% endfor %}
+      <a class="text-sm font-semibold hover:text-emerald-500" href="/projects/">more blog posts</a>
+    </div>
+  </div>
+
+  <div class="w-full">
+    <div class="border-b-2 border-dotted border-emerald-500">
+      <h2 class="text-xl dark:text-stone-400" >Recent Posts</h2>
+    </div>
+    <div class="list-none dark:text-stone-400">
+      {% set section = get_section(path="blog/_index.md") %}
+      {% for page in section.pages | slice(end=2) %}
+        {{ page_macros::page_in_index(page=page) }}
+      {% endfor %}
+      <a class="text-sm font-semibold hover:text-emerald-500" href="/blog/">more blog posts</a>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock content %}
