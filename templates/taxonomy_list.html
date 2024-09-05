@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>{{ config.title }} - {{ taxonomy.name | capitalize }}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="grid-prose flex flex-col items-center">
+  <ul>
+    {% for term in terms %}
+    <li class="prose prose-h1:mb-0 mt-4 group">
+      <a class="no-underline" href="{{ term.permalink}}">
+      <div class="w-full transition">
+        <div class="max-h-[300px] rounded-lg bg-neutral-200 dark:bg-neutral-800">
+            <div class="rounded-lg flex flex-col inset-0 z-10 justify-end 
+            from-neutral-900/50 group-hover:from-neutral-900/80">
+              <h1 class="text-2xl sm:text-3xl transition group-hover:text-orange-500
+                text-black dark:text-white dark:drop-shadow-lg !pb-0 p-3 w-full">
+                {{ term.name }}
+              </h1>
+
+              <section class="p-3 !pt-1 text-black dark:text-white dark:drop-shadow-lg !pb-1 sm:!pb-2 w-full">
+                {% set count = term.pages | length %}
+                <span class="secondary small">({{ count }} page{{ count | pluralize }})</span>
+              </section>
+            </div>  
+        <div>
+      </div>
+      </a>
+    </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

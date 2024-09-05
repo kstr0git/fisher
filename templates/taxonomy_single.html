@@ -1,0 +1,17 @@
+{% extends "page.html" %}
+{% import "page_macros.html" as page_macros %}
+
+{% block title %}
+<title>{{ config.title }} - {{ term.name | capitalize }}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="grid-prose flex flex-col items-center">
+    <ul>
+        {% for page in term.pages %}
+          {{ page_macros::page_in_list(page=page) }}
+        {% endfor %}
+    </ul>
+    <a class="p-4 text-center text-stone-500 hover:text-orange-500" href="{{ get_taxonomy(kind=taxonomy.name) | get(key='permalink') }}">All {{ taxonomy.name }}</a>
+</div>
+{% endblock content %}

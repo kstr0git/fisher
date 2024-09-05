@@ -4,7 +4,7 @@
 <li class="prose prose-h1:mb-0 mt-4 group">
     <a class="no-underline" href="{{ page.permalink | safe }}">
         <div class="w-full transition">
-            <div class="max-h-[300px] rounded-lg bg-neutral-100 dark:bg-neutral-800"
+            <div class="max-h-[300px] rounded-lg bg-neutral-200 dark:bg-neutral-800"
                  {% set meta = get_image_metadata(path=page.path ~ "banner.png", allow_missing=true) %}
                  {% if meta %}
                     {% if page.extra.index_banner %}
@@ -13,7 +13,7 @@
                 {% endif %}>
                 <div class="rounded-lg flex flex-col inset-0 z-10 justify-end
                     {% if page.extra.index_banner %} bg-gradient-to-t {% endif %}
-                    from-neutral-900/60 group-hover:from-stone-900/90">
+                    from-neutral-900/50 group-hover:from-neutral-900/80">
 
                     <time class="p-3 !pb-0
                         {% if page.extra.index_banner %} text-white
@@ -23,7 +23,7 @@
                         {{ page.date | date(format='%B %d, %Y') }}
                     </time>
 
-                    <h1 class="text-3xl sm:text-4xl transition group-hover:text-emerald-500
+                    <h1 class="text-2xl sm:text-3xl transition group-hover:text-orange-500
                         {% if page.extra.index_banner %} text-white
                         {% else %} text-black dark:text-white
                         {% endif %} dark:drop-shadow-lg p-3 !pt-0 
@@ -48,43 +48,3 @@
 </li>
 {% endif %}
 {% endmacro page_in_list %}
-
-{% macro page_in_index(page) %}
-{% if page.extra.unlisted %}
-{% else %}
-<li class="prose prose-h1:mb-0 mt-4 group">
-    <a class="no-underline" href="{{ page.permalink | safe }}">
-        <div class="w-full transition">
-            <div class="max-h-[150px] rounded-lg bg-neutral-100 dark:bg-neutral-800"
-                 {% set meta = get_image_metadata(path=page.path ~ "banner.png", allow_missing=true) %}
-                 {% if meta %}
-                    {% if page.extra.index_banner %}
-                        style="background-image: url('{{ get_url(path=page.path ~ 'banner.png', cachebust=true) }}'); background-size: cover;"
-                    {% endif %}
-                {% endif %}>
-                <div class="rounded-lg flex flex-col inset-0 z-10 justify-end
-                    {% if page.extra.index_banner %} bg-gradient-to-t {% endif %}
-                    from-neutral-900/60 group-hover:from-stone-900/90">
-
-                    <time class="text-sm p-3 !pb-0
-                        {% if page.extra.index_banner %} text-white
-                        {% else %} text-black dark:text-white
-                        {% endif %} dark:drop-shadow-lg"
-                         datetime="{{ page.date | date(format='%+') }}">
-                        {{ page.date | date(format='%B %d, %Y') }}
-                    </time>
-
-                    <h1 class="text-base sm:text-xl transition group-hover:text-emerald-500
-                        {% if page.extra.index_banner %} text-white
-                        {% else %} text-black dark:text-white
-                        {% endif %} dark:drop-shadow-lg p-3 !pt-0 
-                        !pb-1 sm:!pb-2 w-full">
-                        {{ page.title }}
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-{% endif %}
-{% endmacro page_in_index %}

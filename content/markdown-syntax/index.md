@@ -3,6 +3,9 @@ title = "Markdown Syntax"
 date = 2023-02-11
 description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements. Shown in Metadata"
 
+[taxonomies]
+categories = ["markdown"]
+
 [extra]
 subtitle = "This will be shown on the card on the blog list page"
 index_banner = true
